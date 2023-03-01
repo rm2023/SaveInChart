@@ -1,5 +1,14 @@
 # 05 Third-Party APIs: Work Day Scheduler
-.
+code source https://rm2023.github.io/SaveInChart/
+located im my repo https://github.com/rm2023
+
+## Resources
+openai.com
+studygroup
+slack tutor help with fixing code 
+jay instructor helped with second issue
+stackoverflow.com
+
 
 ## User Story
 
