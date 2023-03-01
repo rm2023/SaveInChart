@@ -1,60 +1,131 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+//will start loading saved storage
+
+var am = localStorage.getItem('09am');
+if ('09am') {
+  $('#09 textarea').text(am);
+}
+
+var am = localStorage.getItem('10am');
+if ('10am') {
+  $('#10 textarea').text(am);
+}
+
+var am = localStorage.getItem('11am');
+if ('11am') {
+  $('#11 textarea').text(am);
+}
+
+var am = localStorage.getItem('12am');
+if ('12am') {
+  $('#12 textarea').text(am);
+}
+
+var am = localStorage.getItem('1pm');
+if ('1pm') {
+  $('#13 textarea').text(am);
+}
+
+var am = localStorage.getItem('2pm');
+if ('2pm') {
+  $('#14 textarea').text(am);
+}
+
+var am = localStorage.getItem('3pm');
+if ('3pm') {
+  $('#15 textarea').text(am);
+}
+
+var am = localStorage.getItem('4pm');
+if ('4pm') {
+  $('#16 textarea').text(am);
+}
+
+var am = localStorage.getItem('5pm');
+if ('5pm') {
+  $('#17 textarea').text(am);
+}
+//displayed time and date
 var currentdate = dayjs().format('dddd, MMMM D YYYY, h:mm:ss a');
 $('#currentDay').text(currentdate);
-//console.log(currentdate);
-
-//var hour = dayjs().format('hh');
-//console.log(hour);
-
 const now = dayjs();
-
 var hour = now.format('HH');
+//click storage function for all lines
+$(document).ready(function () {
+  $('#09 button').click(function () {
+    var textareaValue = $('#09 textarea').val();
+    localStorage.setItem('09am', textareaValue);
+  });
+});
 
-console.log(hour);
+$(document).ready(function () {
+  $('#10 button').click(function () {
+    var textareaValue = $('#10 textarea').val();
+    localStorage.setItem('10am', textareaValue);
+  });
+});
 
+$(document).ready(function () {
+  $('#11 button').click(function () {
+    var textareaValue = $('#11 textarea').val();
+    localStorage.setItem('11am', textareaValue);
+  });
+});
 
+$(document).ready(function () {
+  $('#12 button').click(function () {
+    var textareaValue = $('#12 textarea').val();
+    localStorage.setItem('12am', textareaValue);
+  });
+});
 
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  
-  $(".time-block").each(function() {
- var times = $(this).attr("id");
- 
-console.log(times);
-if  (times == hour){
+$(document).ready(function () {
+  $('#13 button').click(function () {
+    var textareaValue = $('#13 textarea').val();
+    localStorage.setItem('1pm', textareaValue);
+    });
+});
 
-  $(this).removeClass("future").addClass("present");
-  console.log(times+" is equal to " +hour);
-}
-else if (times < hour) {
-  $(this).removeClass("future").addClass("past")
-  console.log(times+" hour less than " +hour);
+$(document).ready(function () {
+  $('#14 button').click(function () {
+    var textareaValue = $('#14 textarea').val();
+    localStorage.setItem('2pm', textareaValue);
+    console.log(localStorage);
+  });
+});
+
+$(document).ready(function () {
+  $('#15 button').click(function () {
+    var textareaValue = $('#15 textarea').val();
+    localStorage.setItem('3pm', textareaValue);
+    });
+});
+
+$(document).ready(function () {
+  $('#16 button').click(function () {
+    var textareaValue = $('#16 textarea').val();
+    localStorage.setItem('4pm', textareaValue);
+  });
+});
+
+$(document).ready(function () {
+  $('#17 button').click(function () {
+    var textareaValue = $('#17 textarea').val();
+    localStorage.setItem('5pm', textareaValue);
+  });
+});
+//will change colors dependin time
+
+$(".time-block").each(function () {
+  var times = $(this).attr("id");
+  if (times == hour) {
+    $(this).removeClass("future").addClass("present");
   }
-else{
- $(this).addClass("future")
-}
-console.log(this.classList);
+  else if (times < hour) {
+    $(this).removeClass("future").addClass("past");
   }
-  )
- 
+  else {
+    $(this).addClass("future");
+  }
 
-
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
+})
 
